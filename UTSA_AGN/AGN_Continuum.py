@@ -21,5 +21,5 @@ plt.plot(waveC, fluxC) # plot spectrum
 plt.plot(waveC, y_continuum_fitted) # plot continuum
 plt.title('Continuum Fitting')
 plt.grid(True)
-#plt.savefig('Current_AGN_fits/silicate/ngc7314.png')
+#plt.savefig('Current_AGN_fits/silicate/continuum/test.png')
 plt.show()
