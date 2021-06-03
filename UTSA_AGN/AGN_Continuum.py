@@ -9,7 +9,7 @@ from astropy import units as u
 from specutils.spectra import Spectrum1D, SpectralRegion
 from specutils.fitting import fit_generic_continuum
 
-waveC, fluxC, errC = np.loadtxt('CASSIS/CASSIS_FINAL/cassis_mrk231.txt', unpack = True)
+waveC, fluxC, errC = np.loadtxt('CASSIS/CASSIS_FINAL/cassis_mrk231.txt' 'BayeSED/', unpack = True)
 
 spectrum = Spectrum1D(flux=fluxC*u.Jy, spectral_axis=waveC*u.um) # creates bounds to fit continuum
 

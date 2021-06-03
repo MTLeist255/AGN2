@@ -55,16 +55,16 @@ plt.show()
 # load 9/18um silicate strength data
 
 fig = plt.figure(figsize=(12,18))
-imT = Image.open('Current_AGN_fits/silicate/9_18_continuum/test.png') # bottom image
+imT = Image.open('Current_AGN_fits/silicate/9_18_continuum/test.png') # top image
 imM = Image.open('Current_AGN_fits/silicate/9_18_continuum/test3.png') # middle image
-imB = Image.open('Current_AGN_fits/silicate/9_18_continuum/test4.png') # top image
+imB = Image.open('Current_AGN_fits/silicate/9_18_continuum/test4.png') # bottom image
 
 # plot all 3 images on a single figure
 # rows read from bottom up: 1 -> 3
 # Display row 1 -> BOTTOM
-im1 = plt.figimage(imB, xo=0, yo=0)
+im1 = plt.figimage(imB, xo=0, yo=50)
 # Display row 2 -> MIDDLE
-im2 = plt.figimage(imM, xo=0, yo=600)
+im2 = plt.figimage(imM, xo=0, yo=625)
 # Display row 3 -> TOP
 im3 = plt.figimage(imT, xo=0, yo=1200)
 #plt.savefig('Current_AGN_fits/silicate/continuum_stacked/test.png')

@@ -14,9 +14,9 @@ plt.rcParams['figure.figsize'] = (10, 8)
 
 # Cassis data: awaveO = wavelength observed, flux = flux, err = error
 # BREAK 1:
-waveO1, flux1, err1 = np.loadtxt('CASSIS/CASSIS_BC/Break1/cassis_ngc7314_break1.txt', unpack = True)
+waveO1, flux1, err1 = np.loadtxt('CASSIS/CASSIS_BC/Break1/cassis_circinus_break1.txt', unpack = True)
 # BREAK 2:
-waveO2, flux2, err2 = np.loadtxt('CASSIS/CASSIS_BC/Break2/cassis_ngc7314_break2.txt', unpack = True)
+waveO2, flux2, err2 = np.loadtxt('CASSIS/CASSIS_BC/Break2/cassis_circinus_break2.txt', unpack = True)
 # BREAK 3: USE AS NEEDED -> COMMENT OUT WHEN UN-NEEDED
 #waveO3, flux3, err3 = np.loadtxt('CASSIS/CASSIS_BC/Break3/cassis_ngc3783_break3.txt', unpack = True)
 
@@ -31,7 +31,7 @@ waveO2, flux2, err2 = np.loadtxt('CASSIS/CASSIS_BC/Break2/cassis_ngc7314_break2.
 # z = redshift (value found in spreadsheet)
 # creates two separate arrays of corrected wavelengths/fluxes for ranges
 # waveE1 = 5-15um and waveE2 = 15-38um
-z = 0.00476
+z = 0.0010332
 for i in waveO1:
     waveE1 = waveO1 / (1 + z)
 
@@ -46,7 +46,7 @@ for i in waveO2:
 # corrects the break in flux from changing filters, calculated by hand
 # SCALING UP FACTOR (SF): SF = f_2 / f_1 (f = flux and break wavelength)
 for i in flux1:
-    SF = 1.167838416
+    SF = 0.297647469
     fluxf1 = flux1 * SF
 
 # SCALING DOWN FACTOR: UNCOMMENT AS NEEDED
@@ -62,12 +62,12 @@ for i in flux1:
 # Recombine wavelengths and fluxes for plotting:
 # 1) 5-15um combination: BREAK1 COMBO
 
-with open ('CASSIS/CASSIS_ACbreak1/cassis_ngc7314AC1.txt', 'w') as fh:
+with open ('CASSIS/CASSIS_ACbreak1/cassis_circinusAC1.txt', 'w') as fh:
     for a, b, c in zip(waveE1, fluxf1, err1):
         print('%.7f  %.7f  %.7f ' % (a, b, c), file = fh)
 
 # 2) 15-38um combination: BREAK2 COMBO
-with open ('CASSIS/CASSIS_ACbreak2/cassis_ngc7314AC2.txt', 'w') as fh:
+with open ('CASSIS/CASSIS_ACbreak2/cassis_circinusAC2.txt', 'w') as fh:
     for a, b, c in zip(waveE2, flux2, err2):
         print('%.7f  %.7f  %.7f ' % (a, b, c), file = fh)
 
@@ -78,10 +78,10 @@ with open ('CASSIS/CASSIS_ACbreak2/cassis_ngc7314AC2.txt', 'w') as fh:
 
 # combine both created .txt files into one readable .txt file:
 data = data2 = ''
-with open('CASSIS/CASSIS_ACbreak1/cassis_ngc7314AC1.txt') as fp:
+with open('CASSIS/CASSIS_ACbreak1/cassis_circinusAC1.txt') as fp:
     data = fp.read()
 
-with open('CASSIS/CASSIS_ACbreak2/cassis_ngc7314AC2.txt') as fp:
+with open('CASSIS/CASSIS_ACbreak2/cassis_circinusAC2.txt') as fp:
     data2 = fp.read()
 
 # break3 combo -> UNCOMMENT AS NEEDED
@@ -95,11 +95,11 @@ data += data2
 # break 3 addition -> UNCOMMENT AS NEEDED
 #data += data3
 
-with open('CASSIS/CASSIS_FINAL/cassis_ngc7314.txt', 'w') as fp:
+with open('CASSIS/CASSIS_FINAL/cassis_circinus.txt', 'w') as fp:
     fp.write(data)
 
 # Re-read corrected wavelength/flux for cassis and plot:
-waveC, fluxC, errC = np.loadtxt('CASSIS/CASSIS_FINAL/cassis_ngc7314.txt', unpack = True)
+waveC, fluxC, errC = np.loadtxt('CASSIS/CASSIS_FINAL/cassis_circinus.txt', unpack = True)
 
 # plot cassis
 #plt.subplot(221)
@@ -114,7 +114,7 @@ plt.plot(waveC, fluxC, color = 'C2', linewidth = 2)
 
 plt.xlabel('Wavelength[um]')
 plt.ylabel('Flux[Jy]')
-plt.title('NGC 7314 Sy 1.9/2')
+plt.title('Circinus Sy 2')
 
 #plt.loglog(wave, flux)
 

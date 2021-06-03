@@ -12,8 +12,8 @@ b = infile_spitzer['Object']
 type= infile_spitzer['Type']
 
 #read in hi-res spectra
-infile_hires = ascii.read('out_hires.txt')
-c = infile_hires['HiRes']
+# infile_hires = ascii.read('out_hires.txt')
+# c = infile_hires['HiRes']
 
 #create subplots
 fig,axes = plt.subplots(nrows=4,ncols=1,sharex=True,figsize=(4,8),gridspec_kw={'hspace':0})
@@ -29,9 +29,9 @@ for ii in range(len(infile_spitzer['File'])):
     axes[ii].xaxis.set_major_formatter(ticker.ScalarFormatter(useMathText=True))
     axes[ii].yaxis.set_major_formatter(ticker.ScalarFormatter(useMathText=True))
 
-    wave2,flux2,err2=np.loadtxt(c[ii],unpack=True)
-    axes[ii].plot(wave2,flux2,color='red')
+    # wave2,flux2,err2=np.loadtxt(c[ii],unpack=True)
+    # axes[ii].plot(wave2,flux2,color='red')
 
 fig.suptitle('Outlier AGN')
-fig.savefig('hires_out_agn.pdf')
+fig.savefig('test.pdf')
 plt.show()

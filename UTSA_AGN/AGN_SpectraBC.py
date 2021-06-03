@@ -14,7 +14,8 @@ import matplotlib.ticker as ticker
 plt.rcParams['figure.figsize'] = (10, 8)
 
 # Cassis data: awaveO = wavelength observed, flux = flux, err = error
-waveC, fluxC, errC = np.loadtxt('CASSIS/CASSIS_BC/BC_combo/cassis_ngc7314_combo.txt', unpack = True)
+waveC, fluxC, errC = np.loadtxt('CASSIS/CASSIS_BC/BC_combo/cassis_circinusHiRES_combo.txt', unpack = True)
+print(waveC)
 
 # input hawc data
 #waveH, fluxH, errH, g = np.loadtxt('HAWC/hawcngc4388.txt', unpack = True)
@@ -23,22 +24,22 @@ waveC, fluxC, errC = np.loadtxt('CASSIS/CASSIS_BC/BC_combo/cassis_ngc7314_combo.
 #waveHer, fluxHer = np.loadtxt('HERSHEL/herschelngc4388.txt', unpack = True)
 
 # WAVELENGTH CORRECTION -> UNCOMMENT AS NEEDED
-#z = 0.0561
-#waveE = waveC / (1 + z)
+z = 0.0010332
+waveE = waveC / (1 + z)
 
-# Process to read-in, correct wavelength, and create final corrected data -> UNCOMMENT AS NEEDED
-#data = ''
-#with open ('CASSIS/CASSIS_BC/BC_combo/cassis_cygnusA_BC.txt', 'w') as fh:
-#    for a, b, c in zip(waveE, fluxC, errC):
-#        print('%.7f  %.7f  %.7f ' % (a, b, c), file = fh)
+#Process to read-in, correct wavelength, and create final corrected data -> UNCOMMENT AS NEEDED
+data = ''
+with open ('CASSIS/CASSIS_BC/BC_combo/cassis_circinusHiRES_BC.txt', 'w') as fh:
+   for a, b, c in zip(waveE, fluxC, errC):
+       print('%.7f  %.7f  %.7f ' % (a, b, c), file = fh)
 
-#with open('CASSIS/CASSIS_BC/BC_combo/cassis_cygnusA_BC.txt') as fp:
-#    data = fp.read()
+with open('CASSIS/CASSIS_BC/BC_combo/cassis_circinusHiRES_BC.txt') as fp:
+   data = fp.read()
 
-#with open('CASSIS/CASSIS_FINAL/cassis_cygnusA.txt', 'w') as fp:
-#    fp.write(data)
+with open('CASSIS/CASSIS_FINAL/cassis_circinusHiRES.txt', 'w') as fp:
+   fp.write(data)
 
-#waveF, fluxF, errF = np.loadtxt('CASSIS/CASSIS_FINAL/cassis_cygnusA.txt', unpack = True)
+waveF, fluxF, errF = np.loadtxt('CASSIS/CASSIS_FINAL/cassis_circinusHiRES.txt', unpack = True)
 
 # plot cassis
 #plt.subplot(221)
@@ -46,8 +47,8 @@ waveC, fluxC, errC = np.loadtxt('CASSIS/CASSIS_BC/BC_combo/cassis_ngc7314_combo.
 tick_spacing = 1
 fig, ax = plt.subplots(1, 1)
 # Corrected wavelength -> UNCOMMENT AS NEEDED
-#ax.plot(waveF, fluxF)
-ax.plot(waveC, fluxC)
+ax.plot(waveF, fluxF)
+#ax.plot(waveC, fluxC)
 
 # plot hawc
 #plt.scatter(d, e, color = 'r', marker = 'x', linestyle = 'None')
@@ -59,7 +60,7 @@ ax.plot(waveC, fluxC)
 ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
 plt.xlabel('Wavelength[um]')
 plt.ylabel('Flux[Jy]')
-plt.title('NGC 7314 Sy 1.9/2')
+plt.title('Circinus Sy 2')
 #plt.loglog(wave, flux)
 
 #plt.loglog(j,k)

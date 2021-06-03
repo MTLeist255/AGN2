@@ -1,0 +1,16 @@
+object		telescope/	wavelength(um)	flux(Jy) error (Jy)
+		instrument
+
+MCG-5-23-16	WISE		3.4		0.124	0.012
+		WISE		4.6		0.173	0.017
+		WISE		12		0.633	0.063
+		WISE		22		1.825	0.183
+		SOFIA/FORCAST	31.5		2.43	0.2
+		SOFIA/HAWC+	53		1.69	0.21
+		Herschel/PACS	70		1.17	0.06
+		SOFIA/HAWC+	89		0.69	0.1
+		SOFIA/HAWC+	155		0.466	0.05
+		Herschel/PACS	160		0.339	0.02
+		Herschel/SPIRE	250		0.11	0.02
+		Herschel/SPIRE	350		0.05	0.003
+		Herschel/SPIRE	500		0.02	0.001

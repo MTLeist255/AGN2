@@ -1,0 +1,2 @@
+﻿test,id,redshift,filter,filter_err,filter1,filter_err1,filter2,filter_err2,filter3,filter_err3,filter4,filter_err4,filter5,filter_err5,filter6,filter_err6,filter7,filter_err7,filter8,filter_err8,filter9,filter_err9,filter10,filter_err10,filter11,filter_err11,filter12,filter_err12,distance
+test1,1,0.00983493,0.124,0.012,0.173,0.017,0.633,0.063,1.825,0.183,2.43,0.2,1.69,0.21,1.17,0.06,0.69,0.1,0.466,0.05,0.339,0.02,0.11,0.02,0.05,0.003,0.02,0.001,42.21
